@@ -36,7 +36,6 @@
     /* Efectos hover sutiles para elementos interactivos */
     .doc-link {
       transition: all 0.2s ease-in-out;
-      display: block;
     }
     .doc-link:hover {
       transform: translateY(-2px);
@@ -45,6 +44,31 @@
     }
     .doc-link:active {
       transform: translateY(0);
+    }
+
+    /* Estilo para los ítems de lista en la Caja 3 */
+    .plan-item {
+      transition: all 0.15s ease-in-out;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .plan-item:last-child {
+      border-bottom: none;
+    }
+    .plan-item:hover {
+      background-color: rgba(11, 83, 148, 0.08);
+      padding-left: 0.5rem;
+    }
+
+    /* Acordeones de departamentos */
+    details > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary .arrow-icon {
+      transform: rotate(180deg);
     }
 
     /* Animación de entrada suave */
@@ -61,7 +85,7 @@
 
   <!-- CABECERA PRINCIPAL SUPERIOR -->
   <header class="w-full bg-[#0062a3] text-white py-3.5 shadow-md mb-6 text-center">
-    <h1 class="text-xl md:text-2xl font-bold tracking-wide uppercase">
+    <h1 id="main-header-title" class="text-xl md:text-2xl font-bold tracking-wide uppercase">
       1. DOCUMENTOS INSTITUCIONALES
     </h1>
   </header>
@@ -70,7 +94,7 @@
   <div class="max-w-6xl w-11/12 mb-4 flex flex-wrap justify-between items-center text-xs text-slate-600 bg-white p-3 rounded-lg border border-slate-200 shadow-sm gap-2">
     <div class="flex items-center gap-2">
       <i class="fa-solid fa-circle-info text-blue-600"></i>
-      <span>Pasa el ratón sobre cualquier texto o barra para abrir su documento PDF.</span>
+      <span>Haz clic sobre cualquier texto o barra para abrir su documento PDF.</span>
     </div>
     <div class="flex items-center gap-2">
       <label for="demo-mode" class="cursor-pointer font-medium select-none text-slate-700">Visualizador previo interactivo:</label>
@@ -78,12 +102,14 @@
     </div>
   </div>
 
+  <!-- ========================================================================= -->
   <!-- VISTA PRINCIPAL DEL ESQUEMA -->
+  <!-- ========================================================================= -->
   <main id="main-view" class="max-w-6xl w-11/12 bg-[#bdd7ee] border-2 border-[#7a9bb8] p-4 md:p-6 rounded-md shadow-lg fade-in">
     
     <!-- TÍTULO SUPERIOR: PROGRAMACIÓN GENERAL ANUAL -->
     <div class="text-center mb-5">
-      <a href="https://drive.google.com/file/d/1uCVVzD-HE19wrhDCLM6AVMQuI7WfNMMt/view?usp=sharing" target="_blank" data-pdf="https://drive.google.com/file/d/1uCVVzD-HE19wrhDCLM6AVMQuI7WfNMMt/view?usp=sharing" data-title="Programación General Anual (PGA)" 
+      <a href="https://drive.google.com/file/d/1uCVVzD-HE19wrhDCLM6AVMQuI7WfNMMt/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1uCVVzD-HE19wrhDCLM6AVMQuI7WfNMMt/view?usp=sharing" data-title="Programación General Anual (PGA)" 
          class="doc-link inline-block text-xl md:text-2xl font-bold text-[#0b5394] hover:underline px-4 py-1.5 rounded">
         PROGRAMACIÓN GENERAL ANUAL
         <i class="fa-solid fa-file-pdf ml-1.5 text-base opacity-80"></i>
@@ -100,7 +126,7 @@
         <div class="bg-[#e7e9ec] border border-[#8c9ba5] p-3.5 md:p-4 rounded text-center shadow-sm">
           
           <!-- Enlace Proyecto Educativo -->
-          <a href="https://drive.google.com/file/d/1cb6y5GHsrB-KpjEG28dCQ9PbeAAbBYFy/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1cb6y5GHsrB-KpjEG28dCQ9PbeAAbBYFy/view?usp=drive_link" data-title="Proyecto Educativo"
+          <a href="https://drive.google.com/file/d/1cb6y5GHsrB-KpjEG28dCQ9PbeAAbBYFy/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1cb6y5GHsrB-KpjEG28dCQ9PbeAAbBYFy/view?usp=drive_link" data-title="Proyecto Educativo"
              class="doc-link text-lg md:text-xl font-bold text-[#0b5394] hover:underline mb-3 inline-block">
             PROYECTO EDUCATIVO
             <i class="fa-solid fa-file-pdf ml-1 text-sm opacity-80"></i>
@@ -109,7 +135,7 @@
           <!-- Caja Anidada: PROPUESTA CURRICULAR -->
           <div class="bg-[#dadde1] border border-[#8c9ba5] p-3 rounded mb-4">
             
-            <a href="https://drive.google.com/file/d/1ylibQAyb7MjOFDRo1-ahm-x6PJsZswSG/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1ylibQAyb7MjOFDRo1-ahm-x6PJsZswSG/view?usp=drive_link" data-title="Propuesta Curricular"
+            <a href="https://drive.google.com/file/d/1ylibQAyb7MjOFDRo1-ahm-x6PJsZswSG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1ylibQAyb7MjOFDRo1-ahm-x6PJsZswSG/view?usp=drive_link" data-title="Propuesta Curricular"
                class="doc-link text-base md:text-lg font-bold text-[#0b5394] hover:underline mb-2.5 inline-block">
               PROPUESTA CURRICULAR
               <i class="fa-solid fa-file-pdf ml-1 text-xs opacity-80"></i>
@@ -117,7 +143,7 @@
 
             <!-- Caja Anidada Interna: PROGRAMACIONES DOCENTES -->
             <div class="bg-[#bfc4ca] border border-[#8c9ba5] p-2.5 rounded">
-              <a href="programaciones.html" id="btn-programaciones" data-pdf="programaciones.html" data-title="Programaciones Docentes por Departamento"
+              <a href="#programaciones" id="btn-programaciones" data-title="Programaciones Docentes por Departamento"
                  class="doc-link text-sm md:text-base font-bold text-[#0b5394] hover:underline block py-1">
                 PROGRAMACIONES DOCENTES
                 <i class="fa-solid fa-sitemap ml-1 text-xs opacity-80"></i>
@@ -130,57 +156,58 @@
           <div class="flex flex-col gap-2.5 text-xs md:text-sm">
 
             <!-- 1. Estrategia Digital del Centro -->
-            <a href="https://drive.google.com/file/d/1ivC7fnb2cE8AARbT9b2_5F_dIzDX024N/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1ivC7fnb2cE8AARbT9b2_5F_dIzDX024N/view?usp=drive_link" data-title="Estrategia Digital del Centro (PDC)"
-               class="doc-link bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
+            <a href="https://drive.google.com/file/d/1ivC7fnb2cE8AARbT9b2_5F_dIzDX024N/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1ivC7fnb2cE8AARbT9b2_5F_dIzDX024N/view?usp=drive_link" data-title="Estrategia Digital del Centro (PDC)"
+               class="doc-link block bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
               ESTRATEGIA DIGITAL DEL CENTRO (PDC)
             </a>
 
             <!-- 2. Plan de Mejora -->
-            <a href="https://drive.google.com/file/d/1OKBhbJOvvmJun1JyKEabySXld-vDgub7/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1OKBhbJOvvmJun1JyKEabySXld-vDgub7/view?usp=drive_link" data-title="Plan de Mejora"
-               class="doc-link bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
+            <a href="https://drive.google.com/file/d/1OKBhbJOvvmJun1JyKEabySXld-vDgub7/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1OKBhbJOvvmJun1JyKEabySXld-vDgub7/view?usp=drive_link" data-title="Plan de Mejora"
+               class="doc-link block bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
               PLAN DE MEJORA
             </a>
 
             <!-- 3. Plan de Convivencia -->
-            <a href="https://drive.google.com/file/d/17PXeSdn47Zrmy5Wc8PmAlyVjcrfANE9-/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/17PXeSdn47Zrmy5Wc8PmAlyVjcrfANE9-/view?usp=drive_link" data-title="Plan de Convivencia"
-               class="doc-link bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
+            <a href="https://drive.google.com/file/d/17PXeSdn47Zrmy5Wc8PmAlyVjcrfANE9-/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/17PXeSdn47Zrmy5Wc8PmAlyVjcrfANE9-/view?usp=drive_link" data-title="Plan de Convivencia"
+               class="doc-link block bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
               PLAN DE CONVIVENCIA
             </a>
 
             <!-- 4. Plan de Atención a la Diversidad -->
-            <a href="https://drive.google.com/file/d/1yNr7D8TJ4RYsLNR2GecnQpB66Rg8b0Mw/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1yNr7D8TJ4RYsLNR2GecnQpB66Rg8b0Mw/view?usp=drive_link" data-title="Plan de Atención a la Diversidad"
-               class="doc-link bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
+            <a href="https://drive.google.com/file/d/1yNr7D8TJ4RYsLNR2GecnQpB66Rg8b0Mw/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1yNr7D8TJ4RYsLNR2GecnQpB66Rg8b0Mw/view?usp=drive_link" data-title="Plan de Atención a la Diversidad"
+               class="doc-link block bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
               PLAN DE ATENCIÓN A LA DIVERSIDAD
             </a>
 
             <!-- 5. Plan Lingüístico -->
-            <a href="https://drive.google.com/file/d/1v50sdXGPSaH_9TjjPLcEJOXcuOQ4J3gq/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1v50sdXGPSaH_9TjjPLcEJOXcuOQ4J3gq/view?usp=drive_link" data-title="Plan Lingüístico"
-               class="doc-link bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
+            <a href="https://drive.google.com/file/d/1v50sdXGPSaH_9TjjPLcEJOXcuOQ4J3gq/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1v50sdXGPSaH_9TjjPLcEJOXcuOQ4J3gq/view?usp=drive_link" data-title="Plan Lingüístico"
+               class="doc-link block bg-[#199d43] text-white font-bold py-2.5 px-3 rounded text-center shadow">
               PLAN LINGÜÍSTICO
             </a>
 
             <!-- 6. Plan de Lectura -->
-            <a href="https://drive.google.com/file/d/19jc-KE00odREtmS5X-6AwMcU13uL4tsc/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/19jc-KE00odREtmS5X-6AwMcU13uL4tsc/view?usp=drive_link" data-title="Plan de Lectura"
-               class="doc-link bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
+            <a href="https://drive.google.com/file/d/19jc-KE00odREtmS5X-6AwMcU13uL4tsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/19jc-KE00odREtmS5X-6AwMcU13uL4tsc/view?usp=drive_link" data-title="Plan de Lectura"
+               class="doc-link block bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
               PLAN DE LECTURA
             </a>
 
             <!-- 7. Plan de Acción Tutorial -->
-            <a href="https://drive.google.com/file/d/1V8zffGy-TfrrEB3iKAepi3jml4ASNxSw/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1V8zffGy-TfrrEB3iKAepi3jml4ASNxSw/view?usp=drive_link" data-title="Plan de Acción Tutorial"
-               class="doc-link bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
+            <a href="https://drive.google.com/file/d/1V8zffGy-TfrrEB3iKAepi3jml4ASNxSw/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1V8zffGy-TfrrEB3iKAepi3jml4ASNxSw/view?usp=drive_link" data-title="Plan de Acción Tutorial"
+               class="doc-link block bg-white border border-[#7a9bb8] text-[#0b5394] font-bold py-2.5 px-3 rounded text-center shadow-sm">
               PLAN DE ACCIÓN TUTORIAL
             </a>
 
             <!-- 8. Plan de Transición entre Etapas -->
-            <a href="https://drive.google.com/file/d/1KAX-ZxK5ZMD2AXtshXpsRlysVSG66_CE/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1KAX-ZxK5ZMD2AXtshXpsRlysVSG66_CE/view?usp=drive_link" data-title="Plan de Transición entre Etapas"
-               class="doc-link bg-[#35e018] text-white font-bold py-2.5 px-3 rounded text-center shadow">
+            <a href="https://drive.google.com/file/d/1KAX-ZxK5ZMD2AXtshXpsRlysVSG66_CE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1KAX-ZxK5ZMD2AXtshXpsRlysVSG66_CE/view?usp=drive_link" data-title="Plan de Transición entre Etapas"
+               class="doc-link block bg-[#35e018] text-white font-bold py-2.5 px-3 rounded text-center shadow">
               PLAN DE TRANSICIÓN ENTRE ETAPAS
             </a>
-           <!-- 9. PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE. -->
-           <a href="https://drive.google.com/file/d/14sGLbhxZzLvNwAiiuL0QKiA68pXWQaKv/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/14sGLbhxZzLvNwAiiuL0QKiA68pXWQaKv/view?usp=drive_link" data-title="PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE"
-           class="doc-link bg-[#35e018] text-white font-bold py-2.5 px-3 rounded text-center shadow">
-           PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE
-        </a>
+
+            <!-- 9. PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE -->
+            <a href="https://drive.google.com/file/d/14sGLbhxZzLvNwAiiuL0QKiA68pXWQaKv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/14sGLbhxZzLvNwAiiuL0QKiA68pXWQaKv/view?usp=drive_link" data-title="PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE"
+               class="doc-link block bg-[#35e018] text-white font-bold py-2.5 px-3 rounded text-center shadow">
+              PROYECTO INTERDISCIPLINAR BILINGÜE_ SURVIVOR_ THE ARABÍ CHALLENGE
+            </a>
 
           </div>
 
@@ -194,8 +221,8 @@
 
         <!-- CAJA 1: Documento de Organización y Funcionamiento -->
         <div class="bg-[#e7e9ec] border border-[#8c9ba5] p-5 rounded text-center shadow-sm flex items-center justify-center min-h-[110px]">
-          <a href="https://drive.google.com/file/d/1uR7-2gjq5kHzth3Hd6OzbRlXM8BOLzOy/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1uR7-2gjq5kHzth3Hd6OzbRlXM8BOLzOy/view?usp=drive_link" data-title="Documento de Organización y Funcionamiento del Centro"
-             class="doc-link text-base md:text-lg font-bold text-[#0b5394] hover:underline leading-snug">
+          <a href="https://drive.google.com/file/d/1uR7-2gjq5kHzth3Hd6OzbRlXM8BOLzOy/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1uR7-2gjq5kHzth3Hd6OzbRlXM8BOLzOy/view?usp=drive_link" data-title="Documento de Organización y Funcionamiento del Centro"
+             class="doc-link block text-base md:text-lg font-bold text-[#0b5394] hover:underline leading-snug">
             DOCUMENTO DE ORGANIZACIÓN Y FUNCIONAMIENTO DEL CENTRO
             <i class="fa-solid fa-file-pdf block mt-1 text-sm opacity-70"></i>
           </a>
@@ -203,116 +230,115 @@
 
         <!-- CAJA 2: Programa Anual de Actividades Complementarias -->
         <div class="bg-[#e7e9ec] border border-[#8c9ba5] p-5 rounded text-center shadow-sm flex items-center justify-center min-h-[110px]">
-          <a href="https://drive.google.com/file/d/1Keuy6u87vUxW6fk70I8YMs7uU2fyGOKt/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1Keuy6u87vUxW6fk70I8YMs7uU2fyGOKt/view?usp=drive_link" data-title="Programa Anual de Actividades Complementarias y Extraescolares"
-             class="doc-link text-base md:text-lg font-bold text-[#0b5394] hover:underline leading-snug">
+          <a href="https://drive.google.com/file/d/1Keuy6u87vUxW6fk70I8YMs7uU2fyGOKt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1Keuy6u87vUxW6fk70I8YMs7uU2fyGOKt/view?usp=drive_link" data-title="Programa Anual de Actividades Complementarias y Extraescolares"
+             class="doc-link block text-base md:text-lg font-bold text-[#0b5394] hover:underline leading-snug">
             PROGRAMA ANUAL DE ACTIVIDADES COMPLEMENTARIAS Y EXTRAESCOLARES
             <i class="fa-solid fa-file-pdf block mt-1 text-sm opacity-70"></i>
           </a>
         </div>
 
-                <!-- CAJA 3: Otros Planes y Proyectos (13 ENLACES A GOOGLE DRIVE) -->
-                <div class="bg-[#e7e6e6] border border-[#8c9ba5] p-4 rounded shadow-sm flex flex-col">
+        <!-- CAJA 3: Otros Planes y Proyectos (13 ENLACES A GOOGLE DRIVE) -->
+        <div class="bg-[#e7e6e6] border border-[#8c9ba5] p-4 rounded shadow-sm flex flex-col">
           
-                  <h2 class="text-xs md:text-sm font-bold text-[#0066b2] mb-3 leading-snug text-center uppercase tracking-wide border-b border-slate-300 pb-2">
-                    OTROS PLANES Y PROYECTOS NO INCLUIDOS EN EL PROYECTO EDUCATIVO:
-                  </h2>
-        
-                  <div class="flex flex-col text-xs md:text-sm text-[#0066b2]">
-                    
-                    <!-- 1. PRISMA -->
-                    <!-- Pegar enlace de Google Drive en href -->
-                    <a href="https://drive.google.com/file/d/1-byrd8Lva-vu3VonMx1snUnhB7GbYlSj/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1-byrd8Lva-vu3VonMx1snUnhB7GbYlSj/view?usp=drive_link" data-title="PRISMA"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>1. PRISMA</span>
-                    </a>
-        
-                    <!-- 2. PROGRAMA MATESENACCIÓN -->
-                    <a href="https://drive.google.com/file/d/1W0UNqmwCLEZJysiyCpIDyVf9UypO8Luv/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1W0UNqmwCLEZJysiyCpIDyVf9UypO8Luv/view?usp=drive_link" data-title="Programa MatesEnAcción"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>2. PROGRAMA MATESENACCIÓN</span>
-                    </a>
-        
-                    <!-- 3. TEJIENDO LAZOS 2627 -->
-                    <a href="https://drive.google.com/file/d/1OFXqyyZxxdynCjb0CG8358931H6qHHDj/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1OFXqyyZxxdynCjb0CG8358931H6qHHDj/view?usp=drive_link" data-title="Tejiendo Lazos 2627"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>3. TEJIENDO LAZOS 2627</span>
-                    </a>
-        
-                    <!-- 4. PROGRAMA RECREOS ACTIVOS -->
-                    <a href="https://drive.google.com/file/d/1K_GjKaewXY5-z8VaQmOlwUBnY-jiO9Ir/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1K_GjKaewXY5-z8VaQmOlwUBnY-jiO9Ir/view?usp=drive_link" data-title="Programa Recreos Activos"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>4. PROGRAMA RECREOS ACTIVOS</span>
-                    </a>
-        
-                    <!-- 5. PROGRAMA EDUCACIÓN PARA SALUD -->
-                    <a href="https://drive.google.com/file/d/10v3G3T3TqE4aznVgKf57AXIWYI6VKLVY/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/10v3G3T3TqE4aznVgKf57AXIWYI6VKLVY/view?usp=drive_link" data-title="Programa Educación para la Salud"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>5. PROGRAMA EDUCACIÓN PARA SALUD</span>
-                    </a>
-        
-                    <!-- 6. EDUCANDO EN JUSTICIA -->
-                    <a href="https://drive.google.com/file/d/1pH6U7ut1BZ5xBh-8VlOYG6DgXwFOv7td/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1pH6U7ut1BZ5xBh-8VlOYG6DgXwFOv7td/view?usp=drive_link" data-title="Educando en Justicia"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>6. EDUCANDO EN JUSTICIA</span>
-                    </a>
-        
-                    <!-- 7. ESENRED -->
-                    <a href="https://drive.google.com/file/d/1DEN_QewjTLFPS-a_VG8we0c5ijfDxSXd/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1DEN_QewjTLFPS-a_VG8we0c5ijfDxSXd/view?usp=drive_link" data-title="EsenRed"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>7. ESENRED</span>
-                    </a>
-        
-                    <!-- 8. MUSyC -->
-                    <a href="https://drive.google.com/file/d/19mUMQ4VzFgO78LjX_RZ0Qz1m20GvM2U0/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/19mUMQ4VzFgO78LjX_RZ0Qz1m20GvM2U0/view?usp=drive_link" data-title="MUSyC"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>8. MUSyC</span>
-                    </a>
-        
-                    <!-- 9. 4º+EMPRESA -->
-                    <a href="https://drive.google.com/file/d/1oGhNLwwWNmWet3hRe6Dnfl_KsYnowxJY/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1oGhNLwwWNmWet3hRe6Dnfl_KsYnowxJY/view?usp=drive_link" data-title="4º+Empresa"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>9. 4º+EMPRESA</span>
-                    </a>
-        
-                    <!-- 10. PLAN DE FORMACIÓN DE CENTROS EDUCATIVOS -->
-                    <a href="https://drive.google.com/file/d/1cs7jVJzIi_CVVgATOiYauHbE6T_O9yDS/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1cs7jVJzIi_CVVgATOiYauHbE6T_O9yDS/view?usp=drive_link" data-title="Plan de Formación de Centros Educativos"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>10. PLAN DE FORMACIÓN DE CENTROS EDUCATIVOS</span>
-                    </a>
-        
-                    <!-- 11. PROGRAMA EDUCATIVO HUERTOS ESCOLARES ECOLÓGICOS -->
-                    <a href="https://drive.google.com/file/d/1il0zN_rxakmohbR6973wtY5KzkFCwsQ4/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1il0zN_rxakmohbR6973wtY5KzkFCwsQ4/view?usp=drive_link" data-title="Programa Educativo Huertos Escolares Ecológicos"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>11. PROGRAMA EDUCATIVO HUERTOS ESCOLARES ECOLÓGICOS</span>
-                    </a>
-        
-                    <!-- 12. PLAN DE ABSENTISMO ESCOLAR -->
-                    <a href="https://drive.google.com/file/d/1F6YOtnxsZ8rClY5yhZKxah_7GXawciDc/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1F6YOtnxsZ8rClY5yhZKxah_7GXawciDc/view?usp=drive_link" data-title="Plan de Absentismo Escolar"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>12. PLAN DE ABSENTISMO ESCOLAR</span>
-                    </a>
-        
-                    <!-- 13. PLAN DE FORMACIÓN ANTE EMERGENCIAS DE PROTECCIÓN CIVIL -->
-                    <a href="https://drive.google.com/file/d/1ogoFe9ZDLA30e7_LujH8-HkNf0lJwtKq/view?usp=drive_link" target="_blank" data-pdf="https://drive.google.com/file/d/1ogoFe9ZDLA30e7_LujH8-HkNf0lJwtKq/view?usp=drive_link" data-title="Plan de Formación ante Emergencias de Protección Civil"
-                       class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
-                      <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
-                      <span>13. PLAN DE FORMACIÓN ANTE EMERGENCIAS DE PROTECCIÓN CIVIL</span>
-                    </a>
-        
-                  </div>
-                </div>
+          <h2 class="text-xs md:text-sm font-bold text-[#0066b2] mb-3 leading-snug text-center uppercase tracking-wide border-b border-slate-300 pb-2">
+            OTROS PLANES Y PROYECTOS NO INCLUIDOS EN EL PROYECTO EDUCATIVO:
+          </h2>
+
+          <div class="flex flex-col text-xs md:text-sm text-[#0066b2]">
+            
+            <!-- 1. PRISMA -->
+            <a href="https://drive.google.com/file/d/1-byrd8Lva-vu3VonMx1snUnhB7GbYlSj/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1-byrd8Lva-vu3VonMx1snUnhB7GbYlSj/view?usp=drive_link" data-title="PRISMA"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>1. PRISMA</span>
+            </a>
+
+            <!-- 2. PROGRAMA MATESENACCIÓN -->
+            <a href="https://drive.google.com/file/d/1W0UNqmwCLEZJysiyCpIDyVf9UypO8Luv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1W0UNqmwCLEZJysiyCpIDyVf9UypO8Luv/view?usp=drive_link" data-title="Programa MatesEnAcción"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>2. PROGRAMA MATESENACCIÓN</span>
+            </a>
+
+            <!-- 3. TEJIENDO LAZOS 2627 -->
+            <a href="https://drive.google.com/file/d/1OFXqyyZxxdynCjb0CG8358931H6qHHDj/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1OFXqyyZxxdynCjb0CG8358931H6qHHDj/view?usp=drive_link" data-title="Tejiendo Lazos 2627"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>3. TEJIENDO LAZOS 2627</span>
+            </a>
+
+            <!-- 4. PROGRAMA RECREOS ACTIVOS -->
+            <a href="https://drive.google.com/file/d/1K_GjKaewXY5-z8VaQmOlwUBnY-jiO9Ir/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1K_GjKaewXY5-z8VaQmOlwUBnY-jiO9Ir/view?usp=drive_link" data-title="Programa Recreos Activos"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>4. PROGRAMA RECREOS ACTIVOS</span>
+            </a>
+
+            <!-- 5. PROGRAMA EDUCACIÓN PARA SALUD -->
+            <a href="https://drive.google.com/file/d/10v3G3T3TqE4aznVgKf57AXIWYI6VKLVY/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/10v3G3T3TqE4aznVgKf57AXIWYI6VKLVY/view?usp=drive_link" data-title="Programa Educación para la Salud"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>5. PROGRAMA EDUCACIÓN PARA SALUD</span>
+            </a>
+
+            <!-- 6. EDUCANDO EN JUSTICIA -->
+            <a href="https://drive.google.com/file/d/1pH6U7ut1BZ5xBh-8VlOYG6DgXwFOv7td/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1pH6U7ut1BZ5xBh-8VlOYG6DgXwFOv7td/view?usp=drive_link" data-title="Educando en Justicia"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>6. EDUCANDO EN JUSTICIA</span>
+            </a>
+
+            <!-- 7. ESENRED -->
+            <a href="https://drive.google.com/file/d/1DEN_QewjTLFPS-a_VG8we0c5ijfDxSXd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1DEN_QewjTLFPS-a_VG8we0c5ijfDxSXd/view?usp=drive_link" data-title="EsenRed"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>7. ESENRED</span>
+            </a>
+
+            <!-- 8. MUSyC -->
+            <a href="https://drive.google.com/file/d/19mUMQ4VzFgO78LjX_RZ0Qz1m20GvM2U0/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/19mUMQ4VzFgO78LjX_RZ0Qz1m20GvM2U0/view?usp=drive_link" data-title="MUSyC"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>8. MUSyC</span>
+            </a>
+
+            <!-- 9. 4º+EMPRESA -->
+            <a href="https://drive.google.com/file/d/1oGhNLwwWNmWet3hRe6Dnfl_KsYnowxJY/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1oGhNLwwWNmWet3hRe6Dnfl_KsYnowxJY/view?usp=drive_link" data-title="4º+Empresa"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>9. 4º+EMPRESA</span>
+            </a>
+
+            <!-- 10. PLAN DE FORMACIÓN DE CENTROS EDUCATIVOS -->
+            <a href="https://drive.google.com/file/d/1cs7jVJzIi_CVVgATOiYauHbE6T_O9yDS/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1cs7jVJzIi_CVVgATOiYauHbE6T_O9yDS/view?usp=drive_link" data-title="Plan de Formación de Centros Educativos"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>10. PLAN DE FORMACIÓN DE CENTROS EDUCATIVOS</span>
+            </a>
+
+            <!-- 11. PROGRAMA EDUCATIVO HUERTOS ESCOLARES ECOLÓGICOS -->
+            <a href="https://drive.google.com/file/d/1il0zN_rxakmohbR6973wtY5KzkFCwsQ4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1il0zN_rxakmohbR6973wtY5KzkFCwsQ4/view?usp=drive_link" data-title="Programa Educativo Huertos Escolares Ecológicos"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>11. PROGRAMA EDUCATIVO HUERTOS ESCOLARES ECOLÓGICOS</span>
+            </a>
+
+            <!-- 12. PLAN DE ABSENTISMO ESCOLAR -->
+            <a href="https://drive.google.com/file/d/1F6YOtnxsZ8rClY5yhZKxah_7GXawciDc/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1F6YOtnxsZ8rClY5yhZKxah_7GXawciDc/view?usp=drive_link" data-title="Plan de Absentismo Escolar"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>12. PLAN DE ABSENTISMO ESCOLAR</span>
+            </a>
+
+            <!-- 13. PLAN DE FORMACIÓN ANTE EMERGENCIAS DE PROTECCIÓN CIVIL -->
+            <a href="https://drive.google.com/file/d/1ogoFe9ZDLA30e7_LujH8-HkNf0lJwtKq/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-pdf="https://drive.google.com/file/d/1ogoFe9ZDLA30e7_LujH8-HkNf0lJwtKq/view?usp=drive_link" data-title="Plan de Formación ante Emergencias de Protección Civil"
+               class="doc-link plan-item py-1.5 px-2 rounded font-semibold flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+              <span>13. PLAN DE FORMACIÓN ANTE EMERGENCIAS DE PROTECCIÓN CIVIL</span>
+            </a>
+
+          </div>
+        </div>
 
       </div>
 
@@ -321,63 +347,614 @@
   </main>
 
 
-  <!-- VISTA SECUNDARIA TEMPORAL DE DEPARTAMENTOS (Para Programaciones Docentes) -->
-  <section id="departments-view" class="hidden max-w-5xl w-11/12 bg-white border-2 border-slate-300 p-6 rounded-lg shadow-xl fade-in my-4">
-    <div class="flex items-center justify-between border-b pb-4 mb-6">
-      <div>
-        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Sección Especial</span>
-        <h2 class="text-2xl font-bold text-slate-800">Programaciones Docentes por Departamento</h2>
+  <!-- ========================================================================= -->
+  <!-- VISTA SECUNDARIA: PROGRAMACIONES DOCENTES (TODOS LOS 15 DEPARTAMENTOS) -->
+  <!-- ========================================================================= -->
+  <section id="departments-view" class="hidden max-w-6xl w-11/12 bg-[#bdd7ee] border-2 border-[#7a9bb8] p-4 md:p-6 rounded-md shadow-lg fade-in">
+    
+    <div class="bg-white border border-[#8c9ba5] rounded-lg p-4 mb-5 shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-[#0062a3] uppercase tracking-wider">Propuesta Curricular</span>
+          <h2 class="text-xl md:text-2xl font-extrabold text-[#0b5394] uppercase tracking-wide">
+            PROGRAMACIONES DOCENTES POR DEPARTAMENTOS
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600 mt-0.5">
+            Haz clic en un departamento para desplegar sus asignaturas o utiliza el buscador.
+          </p>
+        </div>
+        
+        <!-- BOTÓN VOLVER Y CONTROLES DE ACORDEÓN -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btn-back-to-main" class="bg-[#0062a3] hover:bg-[#0b5394] text-white text-xs md:text-sm font-semibold py-2 px-4 rounded-lg flex items-center gap-2 shadow-sm transition">
+            <i class="fa-solid fa-arrow-left"></i> Volver al Esquema
+          </button>
+          <button id="btn-expand-all" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold py-2 px-3 rounded-lg border border-slate-300 transition">
+            <i class="fa-solid fa-folder-open mr-1"></i> Expandir todos
+          </button>
+          <button id="btn-collapse-all" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold py-2 px-3 rounded-lg border border-slate-300 transition">
+            <i class="fa-solid fa-folder mr-1"></i> Contraer todos
+          </button>
+        </div>
       </div>
-      <button id="btn-back-to-main" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded-lg flex items-center gap-2 transition">
-        <i class="fa-solid fa-arrow-left"></i> Volver al Esquema
-      </button>
+
+      <!-- Campo de búsqueda -->
+      <div class="mt-4 relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input type="text" id="dept-search" placeholder="Buscar por departamento, asignatura o curso (ej. 1º ESO, Biología, Filosofía)..."
+               class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0062a3] focus:bg-white transition">
+      </div>
     </div>
 
-    <p class="text-sm text-slate-600 mb-6">
-      Aquí se listarán todas las programaciones docentes de cada departamento didáctico del centro educativo.
-    </p>
+    <!-- LISTA DE LOS 15 DEPARTAMENTOS -->
+    <div id="dept-accordion-container" class="flex flex-col gap-3">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Matemáticas</span>
-        <i class="fa-solid fa-calculator text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Lengua Castellana y Lit.</span>
-        <i class="fa-solid fa-book text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Geografía e Historia</span>
-        <i class="fa-solid fa-globe text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Inglés / Francés</span>
-        <i class="fa-solid fa-language text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Física y Química</span>
-        <i class="fa-solid fa-flask text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Biología y Geología</span>
-        <i class="fa-solid fa-dna text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Tecnología e Informática</span>
-        <i class="fa-solid fa-laptop-code text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Educación Física</span>
-        <i class="fa-solid fa-running text-blue-600"></i>
-      </div>
-      <div class="p-4 border rounded-lg hover:border-blue-500 hover:shadow-md transition cursor-pointer bg-slate-50 flex items-center justify-between">
-        <span class="font-bold text-slate-700">Música y Artes</span>
-        <i class="fa-solid fa-palette text-blue-600"></i>
-      </div>
+      <!-- 1. ARTES PLÁSTICAS -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-palette text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">01. ARTES PLÁSTICAS</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">7 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_1ESO_EPVA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 1º ESO-EPVA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – EPVA:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 1º ESO-EPVA.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_2ESO_EPVA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º ESO-EPVA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – EPVA:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º ESO-EPVA.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_3ESO_CUA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 3º ESO-CUA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Comunicación Audiovisual:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 3º ESO-CUA.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_4ESO_PROYART/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 4º ESO-PROYART.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Proyectos Artísticos:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 4º ESO-PROYART.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_1BACH_DIBTEC1/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 1º BACHILLERATO DIBUJO TÉCNICO I 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Dibujo Técnico I:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 1º BACHILLERATO DIBUJO TÉCNICO I 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_2BACH_DIBTEC2/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º BACHILLERATO DIBUJO TÉCNICO II 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Dibujo Técnico II:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º BACHILLERATO DIBUJO TÉCNICO II 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ARTES_2BACH_NMA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º BACHILLERATO NUEVOS MEDIOS AUDIOVISUALES.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Nuevos Medios Audiovisuales:</strong> PROGRAMACIÓN DEPARTAMENTO DE ARTES PLASTICAS 2º BACHILLERATO NUEVOS MEDIOS AUDIOVISUALES.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 2. BIOLOGÍA Y GEOLOGÍA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-dna text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">02. BIOLOGÍA Y GEOLOGÍA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">6 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 1º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – Biología y Geología:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 1º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 3º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Biología y Geología:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 3º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_4ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 4º.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Biología y Geología:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 4º.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_4ESO_PROYINV/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 4º PROYECTO INVESTIGACIÓN.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Proyecto de Investigación:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA Y GEOLOGÍA 4º PROYECTO INVESTIGACIÓN.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_1BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA, GEOLOGÍA Y CC.AA. 1º BACH.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Biología, Geología y Ciencias Ambientales:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA 1º BACH.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_BIO_2BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA 2º BACH.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Biología:</strong> PROGRAMACIÓN DEPARTAMENTO BIOLOGÍA 2º BACH.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 3. ECONOMÍA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-chart-line text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">03. ECONOMÍA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">1 materia</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ECONOMIA_GENERAL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE ECONOMÍA 26/27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación General:</strong> Programación Departamento de Economía (26/27).pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+        </div>
+      </details>
+
+
+      <!-- 4. EDUCACIÓN FÍSICA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-person-running text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">04. EDUCACIÓN FÍSICA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">1 materia</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_EF_GENERAL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE EDUCACIÓN FÍSICA 26/27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación General:</strong> Programación Departamento de Educación Física (26/27).pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+        </div>
+      </details>
+
+
+      <!-- 5. FÍSICA Y QUÍMICA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-flask text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">05. FÍSICA Y QUÍMICA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">1 materia</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FYQ_GENERAL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE FÍSICA Y QUÍMICA 26/27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación General:</strong> Programación Departamento de Física y Química (26/27).pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+        </div>
+      </details>
+
+
+      <!-- 6. FILOSOFÍA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-brain text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">06. FILOSOFÍA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">3 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FILO_2ESO_EVCE/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN EDUCACIÓN EN VALORES CÍVICOS Y ÉTICOS 2º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Educación en Valores Cívicos y Éticos:</strong> PROGRAMACIÓN EDUCACIÓN EN VALORES CÍVICOS Y ÉTICOS 2º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FILO_1BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN FILOSOFÍA 1º BACHILLERATO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Filosofía:</strong> PROGRAMACIÓN FILOSOFÍA 1º BACHILLERATO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FILO_2BACH_HISTFIL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN HISTORIA DE LA FILOSOFÍA 2º BACHILLERATO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Historia de la Filosofía:</strong> PROGRAMACIÓN HISTORIA DE LA FILOSOFÍA 2º BACHILLERATO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 7. FRANCÉS -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-language text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">07. FRANCÉS</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">3 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FRAN_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="Programación Francés 1º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – Francés:</strong> Programación Francés 1º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FRAN_2ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="Programación Francés 2º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Francés:</strong> Programación Francés 2º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_FRAN_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="Programación Francés 3º ESO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Francés:</strong> Programación Francés 3º ESO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 8. GEOGRAFÍA E HISTORIA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-earth-americas text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">08. GEOGRAFÍA E HISTORIA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">2 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_GH_GENERAL1/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE GEOGRAFÍA E HISTORIA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación General:</strong> PROGRAMACIÓN DEPARTAMENTO DE GEOGRAFÍA E HISTORIA.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_GH_GENERAL2/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE GEOGRAFÍA E HISTORIA 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación Curso 26/27:</strong> PROGRAMACIÓN DEPARTAMENTO DE GEOGRAFÍA E HISTORIA 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 9. INGLÉS -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-comments text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">09. INGLÉS</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">8 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 1º ESO 2026-27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO:</strong> PROGRAMACIÓN INGLÉS 1º ESO 2026-27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_2ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 2º ESO 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO:</strong> PROGRAMACIÓN INGLÉS 2º ESO 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 3º ESO 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO:</strong> PROGRAMACIÓN INGLÉS 3º ESO 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_4ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 4º ESO 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO:</strong> PROGRAMACIÓN INGLÉS 4º ESO 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_1BACH_CT/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 1º BACH CIENCIAS 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato CT:</strong> PROGRAMACION INGLÉS 1º BACH CIENCIAS 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_1BACH_CCSS/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 1º BACH SOCIALES 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato HHCCSS:</strong> PROGRAMACIÓN INGLÉS 1º BACH SOCIALES 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_2BACH_CT/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 2º BACH CIENCIAS 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato CT:</strong> PROGRAMACIÓN INGLÉS 2º BACH CIENCIAS 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_ING_2BACH_CCSS/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN INGLÉS 2º BACH SOCIALES 2026-2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato HHCCSS:</strong> PROGRAMACIÓN INGLÉS 2º BACH SOCIALES 2026-2027.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 10. LENGUA CASTELLANA Y LITERATURA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-book-open text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">10. LENGUA CASTELLANA Y LITERATURA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">8 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 1º ESO 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – Lengua Castellana y Literatura:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 1º ESO 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_1ESO_RCCL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 1º ESO RCCL 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – Refuerzo Comp. Comunicativa:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 1º ESO RCCL 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_2ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 2º ESO LCL 26_27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Lengua Castellana y Literatura:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 2º ESO LCL 26_27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_2ESO_RCCL/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 2º ESO RCCL 26_27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Refuerzo Comp. Comunicativa:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 2º ESO RCCL 26_27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 3º ESO LCL 26_27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Lengua Castellana y Literatura:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 3º ESO LCL 26_27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_4ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL 4º ESO LCL 26_27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Lengua Castellana y Literatura:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL 4º ESO LCL 26_27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_1BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL LCL I 1º BACHILLERATO 26_27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Lengua Castellana y Literatura I:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL LCL I 1º BACHILLERATO 26_27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LCL_2BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DEPARTAMENTO DE LCL LCL II 26_27 2º BACHILLERATO.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Lengua Castellana y Literatura II:</strong> PROGRAMACIÓN DEPARTAMENTO DE LCL LCL II 26_27 2º BACHILLERATO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 11. LATÍN -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-monument text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">11. LATÍN</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">4 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LATIN_1BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DE LATÍN I 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Latín I:</strong> PROGRAMACIÓN DE LATÍN I 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LATIN_1BACH_HERENCIA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DE HERENCIA Y MITOLOGÍA CLÁSICA 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Herencia y Mitología Clásica:</strong> PROGRAMACIÓN DE HERENCIA Y MITOLOGÍA CLASICA_2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LATIN_2BACH/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DE LATÍN II 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Latín II:</strong> PROGRAMACIÓN DE LATÍN II 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_LATIN_2BACH_PERVIVENCIA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN DE PERVIVENCIA CLÁSICA Y MITOLOGÍA 2627.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Pervivencia Clásica y Mitología:</strong> PROGRAMACIÓN DE PERVIVENCIA CLASICA Y MITOLOGÍA 2627.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 12. MATEMÁTICAS -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-calculator text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">12. MATEMÁTICAS</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">10 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. 1ºESO MATEMÁTICAS.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO – Matemáticas:</strong> PROGRAMACIÓN COMPLETA 2026_2027. 1ºESO MATEMÁTICAS.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_2ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. 2ºESO MATEMÁTICAS.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Matemáticas:</strong> PROGRAMACIÓN COMPLETA 2026_2027. 2ºESO MATEMÁTICAS.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. 3ºESO MATEMÁTICAS.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Matemáticas:</strong> PROGRAMACIÓN COMPLETA 2026_2027. 3ºESO MATEMÁTICAS.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_3ESO_ACT/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN 3ºESO ÁMBITO CIENTÍFICO-TECNOLÓGICO 2026_2027.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Ámbito Científico-Tecnológico:</strong> PROGRAMACIÓN 3ºESO ÁMBITO CIENTÍFICO-TECNOLÓGICO.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_4ESO_A/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. MATES A 4º.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Matemáticas A:</strong> PROGRAMACIÓN COMPLETA 2026_2027. MATES A 4º.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_4ESO_B/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. MATES B 4º.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO – Matemáticas B:</strong> PROGRAMACIÓN COMPLETA 2026_2027. MATES B 4º.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_1BACH_I/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas I.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Matemáticas I:</strong> PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas I.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_1BACH_CCSS1/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas Aplicadas a las Ciencias Sociales 1.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato – Mates CC.SS. I:</strong> PROGRAMACIÓN COMPLETA. Mates Aplicadas CCSS 1.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_2BACH_II/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas II.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Matemáticas II:</strong> PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas II.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MATES_2BACH_CCSS2/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN COMPLETA 2026_2027. Matemáticas Aplicadas a las Ciencias Sociales 2.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato – Mates CC.SS. II:</strong> PROGRAMACIÓN COMPLETA. Mates Aplicadas CCSS 2.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 13. MÚSICA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-music text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">13. MÚSICA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">2 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MUSICA_2ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN MÚSICA 2º ESO 26-27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º ESO – Música:</strong> PROGRAMACIÓN MÚSICA 2º ESO 26-27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_MUSICA_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="PROGRAMACIÓN MÚSICA 3º ESO 26-27.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO – Música:</strong> PROGRAMACIÓN MÚSICA 3º ESO 26-27.pdf</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
+
+      <!-- 14. RELIGIÓN -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-place-of-worship text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">14. RELIGIÓN</span>
+            <span class="text-xs bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-bold">Sin enlace externo</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          <div class="bg-white p-2.5 rounded border border-slate-200 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">Programación Didáctica de Religión:</strong> ESO y Bachillerato</div>
+            <span class="text-xs bg-slate-100 text-slate-600 border border-slate-300 font-semibold px-2 py-0.5 rounded">Sin enlace externo</span>
+          </div>
+        </div>
+      </details>
+
+
+      <!-- 15. TECNOLOGÍA -->
+      <details open class="dept-block bg-white border border-[#8c9ba5] rounded-lg overflow-hidden shadow-sm">
+        <summary class="bg-slate-50 hover:bg-blue-50/60 p-3.5 flex items-center justify-between transition border-b border-slate-200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-microchip text-[#0b5394] text-lg w-6 text-center"></i>
+            <span class="font-extrabold text-slate-800 text-base">15. TECNOLOGÍA</span>
+            <span class="text-xs bg-blue-100 text-[#0b5394] px-2 py-0.5 rounded-full font-bold">9 materias</span>
+          </div>
+          <i class="fa-solid fa-chevron-down arrow-icon text-slate-400 transition-transform duration-200"></i>
+        </summary>
+        <div class="p-3 bg-slate-50/50 flex flex-col gap-2">
+          
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_1ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="1 ESO TEC DIG.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º ESO:</strong> Tecnología y Digitalización (1 ESO TEC DIG.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_3ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="3 ESO TEC DIG.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO:</strong> Tecnología y Digitalización (3 ESO TEC DIG.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_3ESO_DIGCREA/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="3 ESO DIG CREATIVA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">3º ESO:</strong> Digitalización Creativa (3 ESO DIG CREATIVA.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_4ESO/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="4 ESO TEC.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO:</strong> Tecnología (4 ESO TEC.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_4ESO_DIG/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="4 ESO DIG.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">4º ESO:</strong> Digitalización (4 ESO DIG.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_1BACH_ING1/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="1 BACH TEC ING I.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato (CT):</strong> Tecnología e Ingeniería I (1 BACH TEC ING I.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_1BACH_DIGOFIM/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="1 BACH DIG OFIMATICA.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">1º Bachillerato (HHCCSS):</strong> Digitalización y Ofimática (1 BACH DIG OFIMATICA.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_2BACH_ING2/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="2 BACH TEC ING II.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato (CT):</strong> Tecnología e Ingeniería II (2 BACH TEC ING II.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+          <a href="https://drive.google.com/file/d/ID_DRIVE_AQUI_TEC_2BACH_DYP/view?usp=sharing" target="_blank" rel="noopener noreferrer" data-title="2 BACH DYP.pdf" class="doc-link bg-white p-2.5 rounded border border-slate-200 hover:border-blue-400 flex justify-between items-center text-xs md:text-sm text-slate-700">
+            <div><strong class="text-slate-900">2º Bachillerato (CT):</strong> Digitalización y Programación (2 BACH DYP.pdf)</div>
+            <i class="fa-solid fa-file-pdf text-red-600 shrink-0 ml-2"></i>
+          </a>
+
+        </div>
+      </details>
+
     </div>
   </section>
 
-  <!-- MODAL VISUALIZADOR PREVIO DE PDF (Demostración Interactiva) -->
+
+  <!-- MODAL VISUALIZADOR PREVIO DE PDF -->
   <div id="pdf-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden fade-in p-4">
     <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-6 relative border border-slate-200">
       <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition">
@@ -385,23 +962,23 @@
       </button>
 
       <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold">
+        <div class="w-12 h-12 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold shrink-0">
           <i class="fa-solid fa-file-pdf"></i>
         </div>
-        <div>
-          <h3 id="modal-doc-title" class="font-bold text-lg text-slate-800">Nombre del Documento</h3>
-          <p id="modal-doc-path" class="text-xs font-mono text-slate-500">pdfs/documento.pdf</p>
+        <div class="min-w-0">
+          <h3 id="modal-doc-title" class="font-bold text-lg text-slate-800 break-words">Nombre del Documento</h3>
+          <p id="modal-doc-path" class="text-xs font-mono text-slate-500 truncate">Enlace de Google Drive</p>
         </div>
       </div>
 
-      <div class="bg-slate-50 border border-slate-200 rounded-lg p-5 mb-5 text-sm text-slate-600 leading-relaxed">
-        <p class="font-semibold text-slate-700 mb-2">Simulación de visualización:</p>
-        <p>En el servidor web final, al hacer clic se abrirá directamente el documento PDF guardado en la carpeta local <code class="bg-slate-200 px-1.5 py-0.5 rounded text-red-700 font-mono text-xs" id="code-path">pdfs/...</code> en una pestaña independiente del navegador.</p>
+      <div id="modal-info-box" class="bg-slate-50 border border-slate-200 rounded-lg p-5 mb-5 text-sm text-slate-600 leading-relaxed">
+        <p class="font-semibold text-slate-700 mb-2">Vista previa del enlace:</p>
+        <p>Al abrir el documento se cargará la ruta <code class="bg-slate-200 px-1.5 py-0.5 rounded text-red-700 font-mono text-xs break-all" id="code-path">...</code> en una pestaña independiente del navegador.</p>
       </div>
 
       <div class="flex flex-wrap justify-end gap-3">
         <button id="modal-open-direct" class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 px-4 rounded-lg flex items-center gap-2 transition">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Intentar abrir PDF real
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir documento
         </button>
         <button id="modal-close-btn" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium text-sm py-2 px-4 rounded-lg transition">
           Cerrar
@@ -410,11 +987,13 @@
     </div>
   </div>
 
+
   <!-- LÓGICA INTERACTIVA -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const mainView = document.getElementById('main-view');
       const departmentsView = document.getElementById('departments-view');
+      const mainHeaderTitle = document.getElementById('main-header-title');
       const btnProgramaciones = document.getElementById('btn-programaciones');
       const btnBackToMain = document.getElementById('btn-back-to-main');
       const demoCheckbox = document.getElementById('demo-mode');
@@ -423,6 +1002,7 @@
       const modalTitle = document.getElementById('modal-doc-title');
       const modalPath = document.getElementById('modal-doc-path');
       const codePath = document.getElementById('code-path');
+      const modalInfoBox = document.getElementById('modal-info-box');
       const modalClose = document.getElementById('close-modal');
       const modalCloseBtn = document.getElementById('modal-close-btn');
       const modalOpenDirect = document.getElementById('modal-open-direct');
@@ -432,24 +1012,41 @@
       // Manejo de enlaces PDF
       document.querySelectorAll('.doc-link').forEach(link => {
         link.addEventListener('click', (e) => {
-          // Si es el botón de programaciones docentes, mostramos la vista secundaria
+          // Si es el botón de programaciones docentes, mostramos la vista de departamentos
           if (link.id === 'btn-programaciones') {
             e.preventDefault();
             mainView.classList.add('hidden');
             departmentsView.classList.remove('hidden');
+            mainHeaderTitle.textContent = 'PROGRAMACIONES DOCENTES';
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
           }
 
-          // Si el modo de visualizador previo está activado
-          if (demoCheckbox.checked) {
+          currentPdfUrl = link.getAttribute('data-pdf') || link.getAttribute('href');
+          const title = link.getAttribute('data-title') || link.getAttribute('data-name') || link.innerText.trim();
+          const isPlaceholder = currentPdfUrl && currentPdfUrl.includes('ID_DRIVE_AQUI');
+
+          // Si el modo previo está activado o si aún falta poner la ID de Drive, mostramos el modal
+          if (demoCheckbox.checked || isPlaceholder) {
             e.preventDefault();
-            currentPdfUrl = link.getAttribute('data-pdf') || link.getAttribute('href');
-            const title = link.getAttribute('data-title') || link.innerText.trim();
-            
             modalTitle.textContent = title;
             modalPath.textContent = currentPdfUrl;
             codePath.textContent = currentPdfUrl;
+
+            if (isPlaceholder) {
+              modalInfoBox.className = 'bg-amber-50 border border-amber-200 rounded-lg p-5 mb-5 text-sm text-amber-900 leading-relaxed';
+              modalInfoBox.innerHTML = `
+                <p class="font-semibold mb-2"><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> Enlace de Google Drive pendiente de configurar:</p>
+                <p>Abre <strong>index.html</strong> en Visual Studio Code y sustituye <code>ID_DRIVE_AQUI...</code> en <code class="bg-white px-1.5 py-0.5 rounded border border-amber-200 font-mono text-xs break-all">${currentPdfUrl}</code> por el enlace real del archivo en Google Drive.</p>
+              `;
+            } else {
+              modalInfoBox.className = 'bg-slate-50 border border-slate-200 rounded-lg p-5 mb-5 text-sm text-slate-600 leading-relaxed';
+              modalInfoBox.innerHTML = `
+                <p class="font-semibold text-slate-700 mb-2">Vista previa del enlace:</p>
+                <p>Al abrir el documento se cargará la ruta <code class="bg-slate-200 px-1.5 py-0.5 rounded text-red-700 font-mono text-xs break-all">${currentPdfUrl}</code> en una pestaña independiente del navegador.</p>
+              `;
+            }
+
             modal.classList.remove('hidden');
           }
         });
@@ -459,7 +1056,33 @@
       btnBackToMain.addEventListener('click', () => {
         departmentsView.classList.add('hidden');
         mainView.classList.remove('hidden');
+        mainHeaderTitle.textContent = '1. DOCUMENTOS INSTITUCIONALES';
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Expandir y Contraer todos los acordeones de departamentos
+      const deptBlocks = document.querySelectorAll('.dept-block');
+      document.getElementById('btn-expand-all').addEventListener('click', () => {
+        deptBlocks.forEach(d => d.open = true);
+      });
+      document.getElementById('btn-collapse-all').addEventListener('click', () => {
+        deptBlocks.forEach(d => d.open = false);
+      });
+
+      // Buscador en tiempo real de departamentos y asignaturas
+      const searchInput = document.getElementById('dept-search');
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        deptBlocks.forEach(block => {
+          const text = block.textContent.toLowerCase();
+          if (query === '' || text.includes(query)) {
+            block.classList.remove('hidden');
+            if (query !== '') block.open = true;
+          } else {
+            block.classList.add('hidden');
+          }
+        });
       });
 
       // Cerrar modal
